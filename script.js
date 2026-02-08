@@ -246,37 +246,37 @@ function addSideImage(src, position = 'right') {
   img.src = src;
   img.alt = 'Side Image';
   img.style.position = 'fixed';
-  img.style.top = '50%';
   img.style.transform = 'translateY(-50%)';
   img.style.width = '200px'; // adjust size
   img.style.borderRadius = '15px'; // optional, for rounded corners
   img.style.zIndex = '10'; // above background but below popups/menus
 
-switch(position) {
-    case 'right':           // vertical center right
-      img.style.top = '700px';
-      img.style.right = '100px';
-      img.style.transform = 'translateY(-50%)';
-      break;
-    case 'left':            // vertical center left
-      img.style.top = '700px';
-      img.style.left = '100px';
-      img.style.transform = 'translateY(-50%)';
-      break;
-    case 'top-left':        // top-left corner
-      img.style.top = '200px';
-      img.style.left = '100px';
-      break;
-    case 'top-right':       // top-right corner
-      img.style.top = '200px';
-      img.style.right = '100px'
-      img.style.transform = 'translateY(-50%) scale(0.7)'; // 70% size
-      break;
-    default:                // default to right-center
-      img.style.top = '150px';
-      img.style.right = '840px';
-      img.style.transform = 'translateY(-50%) scale(1.5)'; // 70% size
-      break;
+    switch(position) {
+        case 'right':           // vertical center right
+            img.style.top = '80%';
+            img.style.right = '5vw';
+            img.style.transform = 'translateY(-50%) scale(1.5)';
+            break;
+        case 'left':            // vertical center left
+            img.style.top = '80%';
+            img.style.left = '5vw';
+            img.style.transform = 'translateY(-50%) scale(1.2)';
+            break;
+        case 'top-left':        // top-left corner
+            img.style.top = '5vh';
+            img.style.left = '5vw';
+            img.style.transform = 'scale(1)';
+            break;
+        case 'top-right':       // top-right corner
+            img.style.top = '5vh';
+            img.style.right = '5vw';
+            img.style.transform = 'scale(0.7)'; // 70% size
+            break;
+        default:                // fallback: center
+            img.style.top = '20%';
+            img.style.left = '50%';
+            img.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            break;
   }
 
   document.body.appendChild(img);
