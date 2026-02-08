@@ -240,3 +240,53 @@ function setupMusicPlayer() {
         }
     });
 } 
+
+function addSideImage(src, position = 'right') {
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = 'Side Image';
+  img.style.position = 'fixed';
+  img.style.top = '50%';
+  img.style.transform = 'translateY(-50%)';
+  img.style.width = '200px'; // adjust size
+  img.style.borderRadius = '15px'; // optional, for rounded corners
+  img.style.zIndex = '10'; // above background but below popups/menus
+
+switch(position) {
+    case 'right':           // vertical center right
+      img.style.top = '700px';
+      img.style.right = '100px';
+      img.style.transform = 'translateY(-50%)';
+      break;
+    case 'left':            // vertical center left
+      img.style.top = '700px';
+      img.style.left = '100px';
+      img.style.transform = 'translateY(-50%)';
+      break;
+    case 'top-left':        // top-left corner
+      img.style.top = '200px';
+      img.style.left = '100px';
+      break;
+    case 'top-right':       // top-right corner
+      img.style.top = '200px';
+      img.style.right = '100px'
+      img.style.transform = 'translateY(-50%) scale(0.7)'; // 70% size
+      break;
+    default:                // default to right-center
+      img.style.top = '150px';
+      img.style.right = '840px';
+      img.style.transform = 'translateY(-50%) scale(1.5)'; // 70% size
+      break;
+  }
+
+  document.body.appendChild(img);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  addSideImage('https://res.cloudinary.com/dj5xyasxl/image/upload/v1770535241/a6e6f5e9-a9bd-41a3-a914-87551a0124df_oba71r.jpg', 'right'); // right side
+  addSideImage('https://res.cloudinary.com/dj5xyasxl/image/upload/v1770535241/de3dade3-a9d0-4384-8c15-8425f16ce896_k9hc0f.jpg', 'left');  // left side
+  addSideImage('https://res.cloudinary.com/dj5xyasxl/image/upload/v1770535241/4e9a850c-4786-49ff-a361-ad94d07bccb6_vokpi2.jpg', 'top-left');  // top-left side
+  addSideImage('https://res.cloudinary.com/dj5xyasxl/image/upload/v1770535241/8f04e207-eef7-4dc3-b8da-fdbdc53565de_qgkg7c.jpg', 'top-right');  // top-right side
+  addSideImage('https://res.cloudinary.com/dj5xyasxl/image/upload/v1770535240/4c7164d4-3ae1-4ec4-bd0d-c6cb5c4dc245_aeyaq4.jpg', 'default');  // middle center side
+  setBackground();
+});
